@@ -1,0 +1,2 @@
+# Aimz
+Daily Challenge App
