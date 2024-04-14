@@ -1,0 +1,67 @@
+{% extends "tracker/layout.html" %}
+
+{% block head %} 
+<style>
+
+body {
+  padding-top: 80px;
+}
+
+ .my-form{
+  padding: 30px;
+  color:  #2628DD;
+  max-width: 60vh;
+  margin-inline: auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border: #000000;
+  
+ }
+ h1 {
+  font-weight:bold;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+ }
+ .form-control{
+  background-color: inherit;
+  color: #2628DD;
+  border: none;
+  border-bottom: 1px solid #2628DD;
+  border-radius: 0;
+  padding-left: 0;
+ }
+ .form-control:focus{
+  background-color: inherit;
+  color: #2628DD;
+  box-shadow: #2628DD;
+  border-color: #fff;
+ }
+
+
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+</br></br>
+<div class="my-form btn-light new-form">
+  <h1>Update-Challenge</h1>
+<form action="{% url 'update_challenge' challenge.id %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3 mt-4">
+    <label for="exampleInputEmail1" class="form-label">Challenge Name</label>
+    <input type="text" class="form-control" name="challenge" {{ form.challenge}}
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3 mt-4">
+    <label for="exampleInputPassword1" class="form-label">Challenge Date</label>
+    <input type="date" class="form-control" name="challenge_date" {{form.challenge_date}}
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Update Challenge</button>
+</form>
+<p class="mt-4"> <a href="{% url 'dash' %}">My Challenges </a></p>
+</div> 
+
+
+{% endblock %}

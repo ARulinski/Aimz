@@ -1,0 +1,21 @@
+{% extends "tracker/layout.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% if not request.user.profile.is_verified %}
+    <h1>Welcome to Notifications</h1>
+    <p>Verify your phone number!</p>
+    <a class="btn btn-danger" href="{% url 'phone_verification' %}" role="button">Phone Verification</a> 
+{% else %}
+    <h1>Welcome to Notifications</h1>
+    <p>You're all set with your phone number!</p>
+
+    <!-- Add the form for sending notifications -->
+    <form action="{% url 'notifications' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Send Notifications</button>
+    </form>
+{% endif %}
+{% endblock %}

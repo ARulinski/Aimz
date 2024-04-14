@@ -1,0 +1,42 @@
+{% extends "tracker/layout.html" %}
+
+{% block head %}
+<style>
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<header>
+  <h3>My Challenges</h3>
+</header>
+
+<div class="container-fluid">
+<table class="table table-warning table-hover">
+    <thead>
+      <tr>
+        <th scope="col"><strong>Challenges</strong></th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for challenge in ch %}
+      <tr>
+        <td>{{ challenge.challenge }}</td>
+        <td>{{ challenge.challenge_date }}</td>
+        <td>To complete</td>
+        <td><a class="btn btn-primary" href="{% url 'update_challenge' challenge.id %}" role="button">Update</a></td>
+        <td><a class="btn btn-danger" href="{% url 'delete_challenge' challenge.id %}" role="button">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

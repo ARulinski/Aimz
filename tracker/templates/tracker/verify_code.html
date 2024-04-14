@@ -1,0 +1,14 @@
+{% extends "tracker/layout.html" %}
+
+{% block body %}
+
+<h2>Verify Phone Number</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="code">Verification Code:</label>
+    <input type="text" id="code" name="code" required>
+    <button type="submit">Verify</button>
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,104 @@
+{% extends "tracker/layout.html" %}
+
+{% block head %}
+<style>
+    /* Your existing CSS styles */
+    .scrollable-container {
+        max-height: 300px; /* Set maximum height for the container */
+        overflow-y: auto; /* Add vertical scrollbar when content overflows */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!--Header for challenges today-->
+<header>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Today's Challenges</h1>
+          </div>
+        </div>
+      </div>
+</header>
+
+<!--Table for challenges to be completed-->
+<div class="container">
+    <div class="row">
+      <div class="col">
+<div class="container-fluid">
+    <table class="table table-warning table-hover">
+        <thead>
+          <tr>
+            <th scope="col"><strong>Challenges</strong></th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Delete</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for challenge in ch %}
+          <tr>
+            <td>{{ challenge.challenge }}</td>
+            <td>{{ challenge.challenge_date }}</td>
+            <td><a class="btn btn-primary" href="{% url 'status' challenge.id %}" role="button">Complete</a></td>
+            <td><a class="btn btn-danger" href="{% url 'delete_challenge_index' challenge.id %}" role="button">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+        </div>
+         </div>
+            </div>
+
+          
+          </br>
+        </br>  
+      </br>     
+
+<!--Header for completed challenges-->
+<header>
+  <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Completed Challenges</h1>
+        </div>
+      </div>
+    </div>
+</header>
+  
+<!--Table for colpleted challenges -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+<div class="container-fluid">
+  <table class="table table-warning table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><strong>Challenges</strong></th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for challenge in ch1 %}
+        <tr>
+          <td>{{ challenge.challenge }}</td>
+          <td>{{ challenge.challenge_date }}</td>
+          <td><a class="btn btn-success" href="" role="button">Completed</a></td>
+          <td><a class="btn btn-danger" href="{% url 'delete_challenge_index' challenge.id %}" role="button">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+      </div>
+       </div>
+          </div>
+
+{% endblock %}

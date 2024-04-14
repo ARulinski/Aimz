@@ -1,0 +1,40 @@
+{% extends "tracker/layout.html" %}
+
+{% block head %}
+<style>
+    
+    .container {
+        text-align: center;
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+   
+    .aimz {
+        font-family: 'Caveat', cursive; 
+        font-size: 50px;
+    }
+    .capitalized {
+      text-transform: capitalize;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<h1></h1>
+{% if user.is_authenticated %}
+<div class="container">
+    <h1>Welcome to <span class="aimz">Aimz</span></h1>
+    <h1><div class="capitalized">{{user.username}}</div></h1>
+    <p>Your ultimate challenge tracker</p>
+{% else %}
+<h1>Welcome to <span class="aimz">Aimz</span> </h1>
+    <p>Your ultimate challenge tracker</p>
+    <a href="{% url 'login_user' %}" class="btn btn-outline-primary">Login</a>
+    <a href="{% url 'register_user' %}" class="btn btn-outline-primary">Register</a>
+{% endif %}
+</div>
+
+{% endblock %}
