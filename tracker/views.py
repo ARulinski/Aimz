@@ -12,7 +12,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 from .send_message import send_message
-from .verify import send, check
 from . import utils
 from .utils import send_verification_code, verify_code_with_twilio
 
