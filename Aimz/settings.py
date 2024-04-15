@@ -136,4 +136,4 @@ TWILIO_WHATSAPP_NUMBER = config('TWILIO_WHATSAPP_NUMBER')
 
 TWILIO_VERIFY_SERVICE_SID = config('TWILIO_VERIFY_SERVICE_SID')
 
-django_heroku.set(locals())
+django_heroku.settings(locals())
