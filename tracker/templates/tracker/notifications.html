@@ -50,12 +50,12 @@
 {% else %}
     <h1>Welcome to Notifications</h1>
     <p>You're all set with your phone number!</p>
-    <p>Tap the button below </p>
-    <p></p>to receive your daily challenges directly on your phone</p>
+    <p>Tap the button below to receive your daily challenges </p>
+    
 
     <!-- Add the form for sending notifications -->
     <form action="{% url 'notifications' %}" method="post">
-        {% csrf_token %}
+        {% csrf_token %} 
         <button type="submit" class="btn btn-warning">Send Notifications</button>
     </form>
 {% endif %}
