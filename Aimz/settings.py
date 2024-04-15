@@ -1,8 +1,9 @@
 from pathlib import Path
 import os
 from decouple import config
+import dj_database_url
 import django_heroku
-import dj_databse_url
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
