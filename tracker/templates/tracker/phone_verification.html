@@ -16,6 +16,7 @@
 {% block body %}
 
 <h2>Verify Phone Number</h2>
+<p>Example: (+441234567890) </p>
     <form method="post">
         {% csrf_token %}
         <input type="phone_number" class="phone_number" name="phone_number" {{phone_form.phone_number}}
