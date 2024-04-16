@@ -1,17 +1,18 @@
 from twilio.rest import Client
-from tracker.models import Challenge
+from tracker.models import Challenge, Profile
 from django.contrib.auth.models import User
 from django.utils import timezone
 from decouple import config
 
 
-def send_message(user_phone):
+def send_message(request, user_phone):
     account_sid = config("account_sid")
     auth_token = config("auth_token")
     client = Client(account_sid, auth_token)
     # Retrieve challenges for today
     today = timezone.now().date()
-    challenges = Challenge.objects.filter(challenge_date=today)
+    profile = request.user.profile
+    challenges = Challenge.objects.filter(profile = profile, challenge_date=today)
 
     # Construct the message body
     message_body = f"Hello, your daily challenges for today are:\n"
