@@ -15,7 +15,7 @@ def send_message(request, user_phone):
     challenges = Challenge.objects.filter(profile = profile, challenge_date=today)
 
     # Construct the message body
-    message_body = f"Hello, your daily challenges for today are:\n"
+    message_body = f"Hello {profile}, your challenges for today are:\n"
     for challenge in challenges:
         message_body += f"- {challenge.challenge}\n"
 
