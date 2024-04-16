@@ -152,7 +152,7 @@ def notifications(request):
             # Get the user's phone number
             user_phone = request.user.profile.phone_number
             # Call the function to send the message
-            send_message(user_phone)
+            send_message(request, user_phone)
             messages.success(request, ("Message sent!"))
             return redirect('notifications')
         else:
